@@ -1,16 +1,11 @@
 # mobigic
 
-A new Flutter project.
+Flutter Interview Task.
 
-## Getting Started
+Objectives:
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  1. Splash Screen
+  2. Main Screen where user can enter row and column count [home_page.dart]
+  3. Second Screen where user fills the grid with alphabets [grid_creation_screen.dart]
+  4. Display the grid, and when the user enters any character, highlight those characters from the grid (if any).
+     And highlight the characters with green if it is making a word. [grid_display_screen.dart]
