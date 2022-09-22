@@ -1,6 +1,6 @@
 # mobigic
 
-Flutter Interview Question.
+Flutter Interview Task.
 
 Objectives:
 
