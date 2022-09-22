@@ -76,7 +76,7 @@ class _GridDisplayScreenState extends State<GridDisplayScreen> {
                 return Center(
                   child: Container(
                     alignment: Alignment.center,
-                    height: 34.h,
+                    height: 30.h,
                     width: MediaQuery.of(context).size.width,
                     child: ListView.builder(
                       itemCount: widget.column,
