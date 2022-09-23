@@ -93,7 +93,7 @@ class _GridDisplayScreenState extends State<GridDisplayScreen> {
                             rowIndex: rowIndex, columnIndex: columnIndex);
                         bool vertical = verticalMatch(
                             rowIndex: rowIndex, columnIndex: columnIndex);
-                        bool diagonal = diagonalMatch(rowIndex, columnIndex);
+                        // bool diagonal = diagonalMatch(rowIndex, columnIndex);
 
                         return Card(
                           child: Container(
@@ -103,11 +103,9 @@ class _GridDisplayScreenState extends State<GridDisplayScreen> {
                                 ? Colors.greenAccent
                                 : vertical
                                     ? Colors.greenAccent
-                                    : diagonal
-                                        ? Colors.greenAccent
-                                        : itemExist
-                                            ? Colors.orangeAccent
-                                            : Colors.white,
+                                    : itemExist
+                                        ? Colors.orangeAccent
+                                        : Colors.white,
                             child: Text(
                               "${GridGenerate.grid[rowIndex][columnIndex]}",
                             ),

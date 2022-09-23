@@ -2,12 +2,12 @@ import 'package:mobigic/global_variables.dart';
 import 'package:mobigic/grid_creation/view_model/grid_generate.dart';
 import 'package:mobigic/grid_display/view_model/algorithm/check_item_exist.dart';
 
-List<List<bool>> diagonalMatchAlgo() {
+List<List<bool>> diagonalMatchAlgo(List<List<bool>> finalDiagonalBoolData) {
   int row = GridGenerate.grid.length;
   int column = GridGenerate.grid[0].length;
   var data = GridGenerate.grid;
   // var tempDiagonalBoolData = GridGenerate.gridDiagonalBool;
-  var finalDiagonalBoolData = GridGenerate.gridDiagonalBool;
+  GridGenerate.gridDiagonalBool;
 
 
   List<Map<String, int>> diagonalMatchIndex = [];
@@ -93,7 +93,6 @@ List<List<bool>> diagonalMatchAlgo() {
                 }
               }
             } else {
-              // tempDiagonalBoolData = finalDiagonalBoolData;
             }
             j++;
             if (i >= column || j >= row) {
