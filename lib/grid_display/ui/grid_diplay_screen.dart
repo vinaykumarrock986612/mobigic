@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobigic/grid_creation/view_model/grid_generate.dart';
 import 'package:mobigic/grid_display/view_model/grid_display_viewmodel.dart';
+import 'package:mobigic/grid_display/view_model/match_functions/diagonal_match_function.dart';
 import 'package:mobigic/grid_display/view_model/match_functions/horizontal_match_function.dart';
 import 'package:mobigic/grid_display/view_model/match_functions/vertical_match_function.dart';
 
@@ -92,8 +93,7 @@ class _GridDisplayScreenState extends State<GridDisplayScreen> {
                             rowIndex: rowIndex, columnIndex: columnIndex);
                         bool vertical = verticalMatch(
                             rowIndex: rowIndex, columnIndex: columnIndex);
-                        // bool diagonal =
-                        //     model.diagonalMatch(rowIndex, columnIndex);
+                        bool diagonal = diagonalMatch(rowIndex, columnIndex);
 
                         return Card(
                           child: Container(
@@ -103,9 +103,11 @@ class _GridDisplayScreenState extends State<GridDisplayScreen> {
                                 ? Colors.greenAccent
                                 : vertical
                                     ? Colors.greenAccent
-                                    : itemExist
-                                        ? Colors.orangeAccent
-                                        : Colors.white,
+                                    : diagonal
+                                        ? Colors.greenAccent
+                                        : itemExist
+                                            ? Colors.orangeAccent
+                                            : Colors.white,
                             child: Text(
                               "${GridGenerate.grid[rowIndex][columnIndex]}",
                             ),

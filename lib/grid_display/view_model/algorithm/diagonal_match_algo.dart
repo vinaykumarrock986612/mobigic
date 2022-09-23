@@ -6,9 +6,9 @@ List<List<bool>> diagonalMatchAlgo() {
   int row = GridGenerate.grid.length;
   int column = GridGenerate.grid[0].length;
   var data = GridGenerate.grid;
-  var tempDiagonalBoolData = GridGenerate.gridDiagonalBool;
+  // var tempDiagonalBoolData = GridGenerate.gridDiagonalBool;
   var finalDiagonalBoolData = GridGenerate.gridDiagonalBool;
-  var defaultDiagonalBoolData = GridGenerate.gridDiagonalBool;
+
 
   List<Map<String, int>> diagonalMatchIndex = [];
   List<String> diagonalMatchList = [];
@@ -24,34 +24,29 @@ List<List<bool>> diagonalMatchAlgo() {
       }
       if (checkItemExist(item: data[rowIndex][columnIteration])) {
         word = data[rowIndex][columnIteration];
-        tempDiagonalBoolData[rowIndex][columnIteration] = true;
+
         if (rowIndex < row - 1 && columnIteration < column - 1) {
           int j = rowIndex + 1;
           for (int i = columnIteration + 1; i < column; i++) {
             if (checkItemExist(item: data[j][i])) {
               word = word + data[j][i];
-              tempDiagonalBoolData[j][i] = true;
+
               for (int wordIndex = 0; wordIndex < word.length; wordIndex++) {
                 String subWord = word.substring(wordIndex);
                 if (wordList.contains(subWord.toLowerCase())) {
-                  for (int boolUpdateRow = j;
-                  boolUpdateRow < wordIndex;
-                  boolUpdateRow++) {
-                    for (int boolUpdateColumn = i;
-                    boolUpdateColumn < wordIndex;
-                    boolUpdateColumn++) {
-                      tempDiagonalBoolData[rowIndex][columnIteration] = false;
-                      print(
-                          "This is the number of times the loop is running");
+
+                  for(int r_iteration = rowIndex+wordIndex; r_iteration <= j;){
+                    for(int c_iteration = columnIteration+wordIndex; c_iteration <= i; c_iteration++){
+                      finalDiagonalBoolData[r_iteration][c_iteration] = true;
+                      r_iteration++;
                     }
-                    print("This loop is running");
                   }
-                  finalDiagonalBoolData = tempDiagonalBoolData;
+
                   diagonalMatchList.add(subWord);
                 }
               }
             } else {
-              tempDiagonalBoolData = finalDiagonalBoolData;
+              // tempDiagonalBoolData = finalDiagonalBoolData;
             }
             j++;
           }
@@ -72,7 +67,7 @@ List<List<bool>> diagonalMatchAlgo() {
 
       if (checkItemExist(item: data[rowIteration][columnIteration])) {
         word = data[rowIteration][columnIteration];
-        tempDiagonalBoolData[rowIteration][columnIteration] = true;
+
 
         if (rowIteration < row - 1 &&
             columnIteration < column - 1 &&
@@ -81,27 +76,24 @@ List<List<bool>> diagonalMatchAlgo() {
 
           for (int i = columnIteration + 1; i < column; i++) {
             if (checkItemExist(item: data[j][i])) {
-              tempDiagonalBoolData[j][i] = true;
+
               word = word + data[j][i];
               for (int wordIndex = 0; wordIndex < word.length; wordIndex++) {
                 String subWord = word.substring(wordIndex);
                 if (wordList.contains(subWord.toLowerCase())) {
-                  for (int boolUpdateRow = j;
-                  boolUpdateRow < wordIndex;
-                  boolUpdateRow++) {
-                    for (int boolUpdateColumn = i;
-                    boolUpdateColumn < wordIndex;
-                    boolUpdateColumn++) {
-                      tempDiagonalBoolData[rowIndex][columnIteration] = false;
+
+                  for(int r_iteration = rowIteration+wordIndex; r_iteration <= j;){
+                    for(int c_iteration = columnIteration+wordIndex; c_iteration <= i; c_iteration++){
+                      finalDiagonalBoolData[r_iteration][c_iteration] = true;
+                      r_iteration++;
                     }
                   }
-                  finalDiagonalBoolData = tempDiagonalBoolData;
 
                   diagonalMatchList.add(subWord);
                 }
               }
             } else {
-              tempDiagonalBoolData = finalDiagonalBoolData;
+              // tempDiagonalBoolData = finalDiagonalBoolData;
             }
             j++;
             if (i >= column || j >= row) {
